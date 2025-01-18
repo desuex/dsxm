@@ -5,7 +5,7 @@
 @section('meta_keywords', $post->meta_keywords ?? 'web development, PHP, Laravel')
 
 @section('content')
-    <div class="bg-white rounded-lg shadow-lg p-6">
+    <div class="bg-gray-900 rounded-lg shadow-lg p-6">
         @include('components.breadcrumbs', ['post' => $post])
 
         <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>

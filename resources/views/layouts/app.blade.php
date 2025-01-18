@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('meta_title', 'dsxm - Blog on Web Development, Reverse Engineering & Retro Gaming')</title>
-    <meta name="description" content="@yield('meta_description', 'Explore dsxm: A blog about cutting-edge web development techniques, reverse engineering insights, retro gaming nostalgia, and tech tutorials.')">
-    <meta name="keywords" content="@yield('meta_keywords', 'web development, PHP, Laravel, reverse engineering, binary analysis, retro gaming, space rangers, technology blog')">
+    <meta name="description"
+          content="@yield('meta_description', 'Explore dsxm: A blog about cutting-edge web development techniques, reverse engineering insights, retro gaming nostalgia, and tech tutorials.')">
+    <meta name="keywords"
+          content="@yield('meta_keywords', 'web development, PHP, Laravel, reverse engineering, binary analysis, retro gaming, space rangers, technology blog')">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="@yield('meta_title', 'dsxm - Blog on Web Development, Reverse Engineering & Retro Gaming')">
-    <meta property="og:description" content="@yield('meta_description', 'Explore dsxm: A blog about cutting-edge web development techniques, reverse engineering insights, retro gaming nostalgia, and tech tutorials.')">
+    <meta property="og:title"
+          content="@yield('meta_title', 'dsxm - Blog on Web Development, Reverse Engineering & Retro Gaming')">
+    <meta property="og:description"
+          content="@yield('meta_description', 'Explore dsxm: A blog about cutting-edge web development techniques, reverse engineering insights, retro gaming nostalgia, and tech tutorials.')">
     <meta property="og:url" content="@yield('canonical_url', url()->current())">
     <meta property="og:type" content="website">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('meta_title', 'dsxm - Blog on Web Development, Reverse Engineering & Retro Gaming')">
-    <meta name="twitter:description" content="@yield('meta_description', 'Explore dsxm: A blog about cutting-edge web development techniques, reverse engineering insights, retro gaming nostalgia, and tech tutorials.')">
+    <meta name="twitter:title"
+          content="@yield('meta_title', 'dsxm - Blog on Web Development, Reverse Engineering & Retro Gaming')">
+    <meta name="twitter:description"
+          content="@yield('meta_description', 'Explore dsxm: A blog about cutting-edge web development techniques, reverse engineering insights, retro gaming nostalgia, and tech tutorials.')">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="/images/favicons/favicon-48x48.png">
@@ -31,19 +37,20 @@
     <nav class="bg-amber-700 text-white p-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Site Logo -->
-            <a href="/" class="flex items-center">
-                <img src="https://avatars.githubusercontent.com/u/5473786" alt="Site Logo" class="w-10 h-10 rounded-full mr-2">
+            <a href="/" class="flex items-center text-white hover:text-gray-200">
+                <img src="https://avatars.githubusercontent.com/u/5473786" alt="Site Logo"
+                     class="w-10 h-10 rounded-full mr-2">
                 <span class="text-xl font-bold">dsxm</span>
             </a>
             <!-- Navigation Links -->
             <div class="flex space-x-6">
                 @if(auth()->check() && auth()->user()->canRead())
                     <!-- Dashboard -->
-                    <a href="{{ route('dashboard') }}" class="hover:underline">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="text-white hover:text-gray-200">Dashboard</a>
 
                     @if(auth()->user()->canWrite())
                         <!-- Create Article -->
-                        <a href="/create-article" class="hover:underline">Create Article</a>
+                        <a href="/create-article" class="text-white hover:text-gray-200">Create Article</a>
                     @endif
                 @endif
 
@@ -51,12 +58,13 @@
                     <!-- Logout -->
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf
-                        <button type="submit" class="hover:underline">Logout</button>
+                        <button type="submit" class="text-white hover:text-gray-200">Logout</button>
                     </form>
                 @endif
             </div>
         </div>
     </nav>
+
 
 
     <!-- Content -->
@@ -68,7 +76,7 @@
 
         <!-- Right Sidebar -->
         <aside class="hidden lg:block w-1/4">
-            <div class="bg-white rounded-lg shadow-lg p-4 mb-6">
+            <div class="bg-gray-900 rounded-lg shadow-lg p-4 mb-6">
                 <h3 class="text-xl font-bold mb-3">Latest Posts</h3>
                 @foreach($latestPosts as $post)
                     <a href="{{ route('post.show', $post->slug) }}" class="block text-amber-500 hover:underline">
@@ -77,19 +85,21 @@
                 @endforeach
             </div>
 
-            <div class="bg-white rounded-lg shadow-lg p-4 mb-6">
+            <div class="bg-gray-900 rounded-lg shadow-lg p-4 mb-6">
                 <h3 class="text-xl font-bold mb-3">Tags</h3>
                 @foreach($tags as $tag)
-                    <a href="{{ route('tag.show', $tag->slug) }}" class="inline-block bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">
+                    <a href="{{ route('tag.show', $tag->slug) }}"
+                       class="inline-block bg-gray-700 text-gray-200 px-2 py-1 rounded-full text-sm mr-2 mb-2">
                         {{ $tag->name }} ({{ $tag->posts_count }})
                     </a>
                 @endforeach
             </div>
 
-            <div class="bg-white rounded-lg shadow-lg p-4">
+            <div class="bg-gray-900 rounded-lg shadow-lg p-4">
                 <h3 class="text-xl font-bold mb-3">Contact</h3>
                 <p>Email: <a href="mailto:hire@dsxm.com" class="text-amber-500 hover:underline">hire@dsxm.com</a></p>
-                <p>GitHub: <a href="https://github.com/desuex" target="_blank" class="text-amber-500 hover:underline">github.com/desuex</a></p>
+                <p>GitHub: <a href="https://github.com/desuex" target="_blank" class="text-amber-500 hover:underline">github.com/desuex</a>
+                </p>
             </div>
         </aside>
     </main>
