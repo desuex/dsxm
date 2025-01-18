@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('meta_title', $post->meta_title ?? $post->title)
 @section('meta_description', $post->meta_description ?? Str::limit(strip_tags($post->text), 160))

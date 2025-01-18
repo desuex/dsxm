@@ -2,22 +2,14 @@
 <html lang="en">
 <head>
     @include('partials.meta')
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-terminal-bg text-terminal-fg font-sans antialiased">
 <div class="min-h-screen flex flex-col">
-    <x-navbar/>
-    <!-- Content -->
-    <main class="flex-grow container mx-auto p-4 flex">
-        <!-- Main Content -->
-        <div class="w-full lg:w-3/4 pr-4">
-            @yield('content')
-        </div>
-
-        <x-sidebar/>
+    <x-navbar :items="$navbarItems" />
+    <main class="flex-grow container mx-auto p-4">
+        @yield('content')
     </main>
-
     @include('partials.footer')
 </div>
 </body>

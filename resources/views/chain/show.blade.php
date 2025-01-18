@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('meta_title', $chain->meta_title ?? $chain->name)
 @section('meta_description', $chain->meta_description ?? "Explore posts in the chain: {$chain->name}.")

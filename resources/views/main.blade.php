@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('meta_title', 'dsxm - Recent Blog Posts')
 @section('meta_description', 'Explore recent posts on dsxm covering web development, reverse engineering, and retro gaming.')

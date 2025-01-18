@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('meta_title', $category->meta_title ?? $category->name)
 @section('meta_description', $category->meta_description ?? "Posts in the {$category->name} category.")

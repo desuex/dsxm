@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.public')
 
 @section('meta_title', "Tag: {$tag->name}")
 @section('meta_description', $tag->meta_description ?? "Explore posts tagged with {$tag->name}.")

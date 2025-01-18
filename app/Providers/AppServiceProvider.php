@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Post;
-use App\Models\Tag;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,9 +19,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('*', function ($view) {
-            $view->with('latestPosts', Post::latest()->take(5)->get());
-            $view->with('tags', Tag::withCount('posts')->orderBy('posts_count', 'desc')->get());
-        });
     }
 }
