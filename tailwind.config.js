@@ -9,10 +9,31 @@ export default {
         './resources/**/*.js',
         './resources/**/*.vue',
     ],
+    darkMode: 'class',
     theme: {
         extend: {
+            colors: {
+                amber: {
+                    50: '#FFFAF0',
+                    100: '#FEEBC8',
+                    200: '#FBD38D',
+                    300: '#F6AD55',
+                    400: '#ED8936',
+                    500: '#DD6B20', // Base terminal amber
+                    600: '#C05621',
+                    700: '#9C4221',
+                    800: '#7B341E',
+                    900: '#652B19',
+                    DEFAULT: '#FFBF00',
+                    hover: '#FFC107',
+                },
+                terminal: {
+                    bg: '#101010', // Background
+                    fg: '#F6AD55', // Foreground text (amber)
+                },
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Fira Code', ...defaultTheme.fontFamily.sans],
             },
         },
     },
