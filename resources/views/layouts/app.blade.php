@@ -71,7 +71,7 @@
 
             <div class="bg-white rounded-lg shadow-lg p-4">
                 <h3 class="text-xl font-bold mb-3">Contact</h3>
-                <p>Email: <a href="mailto:example@dsxm.com" class="text-amber-500 hover:underline">example@dsxm.com</a></p>
+                <p>Email: <a href="mailto:hire@dsxm.com" class="text-amber-500 hover:underline">hire@dsxm.com</a></p>
                 <p>GitHub: <a href="https://github.com/desuex" target="_blank" class="text-amber-500 hover:underline">github.com/desuex</a></p>
             </div>
         </aside>
