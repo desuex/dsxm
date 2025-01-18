@@ -35,20 +35,29 @@
                 <img src="https://avatars.githubusercontent.com/u/5473786" alt="Site Logo" class="w-10 h-10 rounded-full mr-2">
                 <span class="text-xl font-bold">dsxm</span>
             </a>
-            <!-- Dashboard -->
-            @if(auth()->check() && auth()->user()->canRead())
-            <a href="{{ route('dashboard') }}" class="px-4 py-2 bg-amber-500 rounded-lg hover:bg-amber-600">Dash</a>
+            <!-- Navigation Links -->
+            <div class="flex space-x-6">
+                @if(auth()->check() && auth()->user()->canRead())
+                    <!-- Dashboard -->
+                    <a href="{{ route('dashboard') }}" class="hover:underline">Dashboard</a>
 
-            @if(auth()->user()->canWrite())
-                <a href="/create-article" class="text-amber-500 hover:underline">Create Article</a>
-            @endif
-            @endif
-            <!-- Logout Button -->
-            <a href="{{ route('logout') }}" class="px-4 py-2 bg-amber-500 rounded-lg hover:bg-amber-600">
-                Logout
-            </a>
+                    @if(auth()->user()->canWrite())
+                        <!-- Create Article -->
+                        <a href="/create-article" class="hover:underline">Create Article</a>
+                    @endif
+                @endif
+
+                @if(auth()->check())
+                    <!-- Logout -->
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" class="hover:underline">Logout</button>
+                    </form>
+                @endif
+            </div>
         </div>
     </nav>
+
 
     <!-- Content -->
     <main class="flex-grow container mx-auto p-4 flex">

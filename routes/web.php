@@ -45,4 +45,4 @@ Route::middleware([CheckPermissions::class . ':4'])->group(function () {
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/login');
-})->name('logout');
+})->middleware('auth')->name('logout');
