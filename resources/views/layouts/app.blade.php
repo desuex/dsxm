@@ -35,10 +35,18 @@
                 <img src="https://avatars.githubusercontent.com/u/5473786" alt="Site Logo" class="w-10 h-10 rounded-full mr-2">
                 <span class="text-xl font-bold">dsxm</span>
             </a>
+            <!-- Dashboard -->
+            @if(auth()->check() && auth()->user()->canRead())
+            <a href="{{ route('dashboard') }}" class="px-4 py-2 bg-amber-500 rounded-lg hover:bg-amber-600">Dash</a>
+
+            @if(auth()->user()->canWrite())
+                <a href="/create-article" class="text-amber-500 hover:underline">Create Article</a>
+            @endif
+            @endif
             <!-- Logout Button -->
-{{--            <a href="{{ route('logout') }}" class="px-4 py-2 bg-amber-500 rounded-lg hover:bg-amber-600">--}}
-{{--                Logout--}}
-{{--            </a>--}}
+            <a href="{{ route('logout') }}" class="px-4 py-2 bg-amber-500 rounded-lg hover:bg-amber-600">
+                Logout
+            </a>
         </div>
     </nav>
 

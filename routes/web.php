@@ -6,6 +6,7 @@ use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
+use App\Http\Middleware\CheckPermissions;
 use App\Http\Middleware\IncrementPostViews;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -35,9 +36,12 @@ Route::get('/login', function () {
 Route::get('/google/redirect', [GoogleAuthController::class, 'redirectToProvider'])->name('google.redirect');
 Route::get('/google/callback', [GoogleAuthController::class, 'handleCallback'])->name('google.callback');
 
-Route::get('/dashboard', function () {
-    return 'You are logged in!';
-})->middleware('auth');
+Route::middleware([CheckPermissions::class . ':4'])->group(function () {
+    Route::get('/dashboard', function () {
+        return 'You are logged in!';
+    })->name('dashboard');
+});
+
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/login');
