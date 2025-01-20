@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChainController;
+use App\Http\Controllers\Dashboard\PostController as DashboardPostController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
@@ -31,15 +33,15 @@ Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categ
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 
 Route::get('/google/redirect', [GoogleAuthController::class, 'redirectToProvider'])->name('google.redirect');
 Route::get('/google/callback', [GoogleAuthController::class, 'handleCallback'])->name('google.callback');
 
 Route::middleware([CheckPermissions::class . ':4'])->group(function () {
-    Route::get('/dashboard', function () {
-        return 'You are logged in!';
-    })->name('dashboard');
+    Route::resource('/dashboard/posts', DashboardPostController::class)->except(['show']);
+    Route::get('/dashboard', [DashboardPostController::class, 'index'])->name('dashboard');
 });
 
 Route::post('/logout', function () {

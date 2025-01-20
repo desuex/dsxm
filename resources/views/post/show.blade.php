@@ -21,14 +21,16 @@
                 </a>
             @endif
         </div>
-        <div class="mb-4">
-            Tags:
-            @foreach ($post->tags as $tag)
-                <a href="{{ route('tag.show', $tag->slug) }}" class="text-amber hover:underline mr-2">
-                    {{ $tag->name }}
-                </a>
-            @endforeach
-        </div>
+        @if($post->tags->count())
+            <p class="text-sm text-gray-300 mb-4">
+                Tags:
+                @foreach($post->tags as $tag)
+                    <a href="{{ route('tag.show', $tag->slug) }}" class="text-amber-500 hover:underline">
+                        {{ $tag->name }}
+                    </a>@if(!$loop->last), @endif
+                @endforeach
+            </p>
+        @endif
         <div class="prose">
             {!! \Illuminate\Support\Str::markdown($post->text) !!}
         </div>

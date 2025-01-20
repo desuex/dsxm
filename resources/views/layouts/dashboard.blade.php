@@ -6,7 +6,7 @@
 </head>
 <body class="bg-terminal-bg text-terminal-fg font-sans antialiased">
 <div class="min-h-screen flex flex-col">
-    <x-navbar :items="$navbarItems" />
+    <x-navbar  />
     <main class="flex-grow container mx-auto p-4">
         @yield('content')
     </main>

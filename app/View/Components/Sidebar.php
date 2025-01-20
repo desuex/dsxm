@@ -19,7 +19,12 @@ class Sidebar extends Component
     public function __construct()
     {
         $this->latestPosts = Post::latest()->take(5)->get();
-        $this->tags = Tag::withCount('posts')->orderBy('posts_count', 'desc')->get();
+        $this->tags = Tag::withCount('posts')
+            ->orderBy('posts_count', 'desc')
+            ->get()
+            ->filter(function ($tag) {
+                return $tag->posts_count > 0;
+            });
     }
 
     /**

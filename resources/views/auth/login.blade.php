@@ -6,6 +6,8 @@
     <div class="flex justify-center items-center h-screen">
         <div class="bg-terminal-bg p-8 rounded-lg shadow-lg w-full max-w-md">
             <h1 class="text-2xl font-bold text-center text-terminal-fg mb-4">Login</h1>
+
+            <!-- Google Login -->
             <a href="{{ route('google.redirect') }}" class="w-full bg-amber-500 text-terminal-bg py-2 px-4 rounded-lg flex items-center justify-center mb-4 hover:bg-amber-600">
                 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                     <path fill="#EA4335" d="M24 9.5c3.26 0 6.17 1.17 8.47 3.09l6.37-6.36C34.88 3.36 29.84 1 24 1 14.85 1 6.94 6.59 3.18 14.06l7.43 5.82C12.4 14.07 17.72 9.5 24 9.5z"/>
@@ -15,7 +17,30 @@
                 </svg>
                 Login with Google
             </a>
-            <a href="{{ route('main') }}" class="block text-center text-amber-500 hover:underline">Go to Main Page</a>
+
+            <!-- Local Login Form (Development Only) -->
+            @if(app()->environment('local'))
+                <form method="POST" action="{{ route('login') }}" class="mt-4">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium">Email</label>
+                        <input type="email" name="email" id="email" required
+                               class="w-full px-4 py-2 bg-gray-700 text-white rounded">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password" class="block text-sm font-medium">Password</label>
+                        <input type="password" name="password" id="password" required
+                               class="w-full px-4 py-2 bg-gray-700 text-white rounded">
+                    </div>
+
+                    <button type="submit" class="w-full bg-amber-500 text-terminal-bg py-2 px-4 rounded-lg hover:bg-amber-600">
+                        Login
+                    </button>
+                </form>
+            @endif
+
+            <a href="{{ route('main') }}" class="block text-center text-amber-500 hover:underline mt-4">Go to Main Page</a>
         </div>
     </div>
 @endsection
