@@ -1,66 +1,137 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# dsxm Blog Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is an open-source **Laravel blog application** designed as a personal learning platform to demonstrate and refine best practices in web development. While it's still a work in progress, the ultimate goal is to turn it into an exemplary project showcasing clean architecture, efficient code, and modern technologies.
 
-## About Laravel
+## Why This Project?
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The goal of the **dsxm** project is to create a simple yet robust platform that is:
+- **Easy to Use**: A user-friendly experience for both content creators and readers.
+- **Easy to Maintain**: Designed with clean, modular, and maintainable code.
+- **Built with Best Practices**: Implements industry-standard principles for coding and application design, including **SOLID**, **DRY**, and **KISS**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This project also serves as a learning and practice platform for exploring and mastering modern web development techniques.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Current Features
 
-## Learning Laravel
+### Core Features
+- **User Authentication**:
+    - Google OAuth (via [Laravel Socialite](https://laravel.com/docs/socialite)).
+    - Permissions system inspired by Unix (read, write, execute).
+- **Dynamic Tagging**:
+    - Add tags directly from the post editor.
+    - Auto-create tags on the fly.
+- **Post Management**:
+    - Publish, edit, and categorize posts.
+    - Support for post "chains" (grouped posts on a single topic).
+    - SEO fields for better search visibility.
+- **Responsive and Accessible**:
+    - Styled with [Tailwind CSS](https://tailwindcss.com) for a clean, responsive UI.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Development Focus
+- **Markdown Everywhere**:
+    - Posts, previews, and descriptions support Markdown.
+- **Dynamic Sidebar**:
+    - Latest posts and active tags are updated automatically.
+    - Unused tags are hidden.
+- **SEO-Friendly**:
+    - Meta tags for posts, tags, and categories.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Planned Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The following features are planned to enhance the project further:
+- **Comments**: Support for readers to leave comments on posts.
+- **Social Sharing**: Easily share posts on social media platforms.
+- **Mobile Layouts**: Enhanced responsiveness and usability on mobile devices.
+- **Dashboard Instruments**:
+    - Analytics for views, comments, reactions, and mentions.
+- **Advanced Search**:
+    - Feature-rich search functionality powered by the Sphinx search engine.
+- **API and RSS**: Export blog data via API and RSS feeds.
+- **SEO Enhancements**:
+    - Generate a sitemap and optimize SEO further.
+- **CMS Features**:
+    - Static pages and customizable content blocks.
+- **Image Uploading**:
+    - Support for uploading, processing, and managing images.
+- **Accessibility Features**:
+    - Ensure the platform is accessible to all users.
+- **FediVerse Integration**:
+    - Share posts and interact with the decentralized FediVerse.
+- **Live Post Editing**:
+    - Real-time preview during post creation/editing.
+- **CI/CD and Docker**:
+    - Additional CI/CD features and full Docker integration for deployment.
+- **Backups**:
+    - Automated backups for critical data.
 
-## Laravel Sponsors
+## Technologies
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+This project is built with:
+- **Core Framework**: [Laravel](https://laravel.com) 11, PHP 8.4
+- **Frontend**: [Tailwind CSS](https://tailwindcss.com)
+- **Database**: SQLite (development), MySQL/PostgreSQL (production)
+- **OAuth**: Google integration with [Laravel Socialite](https://laravel.com/docs/socialite)
+- **Markdown Parsing**: Laravel's Markdown utilities
+- **Testing**: PHPUnit for unit tests
+- **Containerization**: Docker-ready setup
 
-### Premium Partners
+## Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/desuex/dsxm.git
+   cd dsxm
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   composer install
+   npm install
+   npm run build
+   ```
+
+3. **Set Up Environment**:
+    - Copy `.env.example` to `.env` and configure:
+        - Database credentials
+        - Google OAuth keys
+
+4. **Run Migrations and Seeders**:
+   ```bash
+   php artisan migrate --seed
+   ```
+
+5. **Start Development Server**:
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+## Roadmap
+
+This project is a work in progress. Here's what we're working towards:
+- **Refactor for Clean Architecture**:
+    - Implement **SOLID principles** and **Domain-Driven Design**.
+    - Reduce redundancy and adhere to **DRY** and **KISS** principles.
+- **Comprehensive Test Coverage**:
+    - Add unit and feature tests.
+- **Improved Documentation**:
+    - Clearer inline code comments and better developer onboarding.
+
+## Live Demo
+
+Check out the live version of the blog: [dsxm](https://dsxm.org)
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Contributions are welcome! If you'd like to help improve the project, please:
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Submit a pull request with a clear description of your changes.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Disclaimer**: This project is under active development and may not yet reflect the best practices it aims to demonstrate.
