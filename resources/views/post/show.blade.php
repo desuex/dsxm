@@ -32,7 +32,8 @@
             </p>
         @endif
         <div class="prose">
-            {!! \Illuminate\Support\Str::markdown($post->text) !!}
+            @markdown($post->text)
+
         </div>
     </div>
 
