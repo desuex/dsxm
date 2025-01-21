@@ -36,7 +36,7 @@ Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categ
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
 
 Route::get('/google/redirect', [GoogleAuthController::class, 'redirectToProvider'])->name('google.redirect');
