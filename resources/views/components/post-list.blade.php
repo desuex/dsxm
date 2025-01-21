@@ -40,7 +40,7 @@
 
             <!-- Markdown Preview -->
             <div class="text-gray-200 mb-4">
-                @markdown($post->preview)
+                @markdown($post->preview ?? "")
             </div>
 
             <!-- Read More Link -->
