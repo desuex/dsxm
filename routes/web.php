@@ -4,6 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChainController;
 use App\Http\Controllers\Dashboard\PostController as DashboardPostController;
+use App\Http\Controllers\Dashboard\TagController as DashboardTagController;
+use App\Http\Controllers\Dashboard\CategoryController as DashboardCategoryController;
+use App\Http\Controllers\Dashboard\ChainController as DashboardChainController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
@@ -39,9 +42,12 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/google/redirect', [GoogleAuthController::class, 'redirectToProvider'])->name('google.redirect');
 Route::get('/google/callback', [GoogleAuthController::class, 'handleCallback'])->name('google.callback');
 
-Route::middleware([CheckPermissions::class . ':4'])->group(function () {
-    Route::resource('/dashboard/posts', DashboardPostController::class)->except(['show']);
-    Route::get('/dashboard', [DashboardPostController::class, 'index'])->name('dashboard');
+Route::middleware([CheckPermissions::class . ':4'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::resource('posts', DashboardPostController::class)->except(['show']);
+    Route::resource('categories', DashboardCategoryController::class)->except(['show']);
+    Route::resource('chains', DashboardChainController::class)->except(['show']);
+    Route::resource('tags', DashboardTagController::class)->except(['show']);
+    Route::get('/', [DashboardPostController::class, 'index'])->name('dashboard');
 });
 
 Route::post('/logout', function () {

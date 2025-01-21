@@ -30,11 +30,15 @@ class Navbar extends Component
             $user = Auth::user();
 
             if ($user->canRead()) {
-                $defaultItems[] = ['type' => 'link', 'label' => 'Dashboard', 'url' => route('dashboard')];
+                $defaultItems[] = ['type' => 'link', 'label' => 'Dashboard', 'url' => route('dashboard.dashboard')];
             }
 
             if ($user->canWrite()) {
-                $defaultItems[] = ['type' => 'link', 'label' => 'Create Article', 'url' => '/create-article'];
+                $defaultItems[] = ['type' => 'link', 'label' => 'Create Article', 'url' => route('dashboard.posts.create')];
+                $defaultItems[] = ['type' => 'link', 'label' => 'Tags', 'url' => route('dashboard.tags.index')];
+                $defaultItems[] = ['type' => 'link', 'label' => 'Categories', 'url' => route('dashboard.categories.index')];
+                $defaultItems[] = ['type' => 'link', 'label' => 'Chains', 'url' => route('dashboard.chains.index')];
+
             }
 
             $defaultItems[] = ['type' => 'form', 'label' => 'Logout', 'url' => route('logout')];

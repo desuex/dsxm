@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-2xl font-bold mb-4">Posts</h1>
 
-    <a href="{{ route('posts.create') }}" class="text-white bg-amber-500 px-4 py-2 rounded hover:bg-amber-600 mb-4 inline-block">
+    <a href="{{ route('dashboard.posts.create') }}" class="text-white bg-amber-500 px-4 py-2 rounded hover:bg-amber-600 mb-4 inline-block">
         Create New Article
     </a>
 
@@ -25,8 +25,8 @@
                 <td class="p-4">{{ $post->category->name ?? 'N/A' }}</td>
                 <td class="p-4">{{ $post->chain->name ?? 'N/A' }}</td>
                 <td class="p-4 flex space-x-4">
-                    <a href="{{ route('posts.edit', $post) }}" class="text-amber-500 hover:underline">Edit</a>
-                    <form action="{{ route('posts.destroy', $post) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                    <a href="{{ route('dashboard.posts.edit', $post) }}" class="text-amber-500 hover:underline">Edit</a>
+                    <form action="{{ route('dashboard.posts.destroy', $post) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="text-red-500 hover:underline">Delete</button>

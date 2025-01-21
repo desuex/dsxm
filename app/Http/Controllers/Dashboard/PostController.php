@@ -49,7 +49,7 @@ class PostController extends Controller
             $post->tags()->sync($tags);
         }
 
-        return redirect()->route('dashboard')->with('success', 'Post created successfully.');
+        return redirect()->route('dashboard.dashboard')->with('success', 'Post created successfully.');
     }
 
     /**
@@ -79,7 +79,7 @@ class PostController extends Controller
             $post->tags()->sync($tags);
         }
 
-        return redirect()->route('dashboard')->with('success', 'Post updated successfully.');
+        return redirect()->route('dashboard.dashboard')->with('success', 'Post updated successfully.');
     }
 
     /**
@@ -88,6 +88,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('dashboard')->with('success', 'Post deleted successfully.');
+        return redirect()->route('dashboard.dashboard')->with('success', 'Post deleted successfully.');
     }
 }
